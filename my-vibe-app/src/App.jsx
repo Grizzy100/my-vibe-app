@@ -81,7 +81,7 @@ export default function App() {
     <div style={{
         ...styles.container,
         background: selected ? VIBE_GRADIENTS[selected.label] : styles.container.background,
-        transition: "background 0.6s ease",
+        transition: "background 0.8s ease",
       }}>
       <h1 style={styles.title}>What's your vibe today?</h1>
 
@@ -101,11 +101,11 @@ export default function App() {
         ))}
       </div>
 
-      <div style={styles.status}>
+      <p style={styles.status}>
         {selected
-          ? `${selected.emoji} You're feeling ${selected.label} today (${today()})`
+          ? `${selected.emoji} You're feeling ${selected.label} today`
           : "No vibe selected yet for today."}
-      </div>
+      </p>
 
       {selected && (
         <button onClick={reset} style={styles.reset}>
@@ -124,18 +124,21 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "'Segoe UI', sans-serif",
-    background: "#f9f9f9",
+    background: "linear-gradient(135deg, #f5f5f5, #e8e8e8)",
     padding: "2rem",
   },
   title: {
-    fontSize: "2rem",
+    fontSize: "2.2rem",
+    fontWeight: 700,
     marginBottom: "2rem",
-    color: "#1a1a1a",
+    color: "rgba(0,0,0,0.75)",
+    letterSpacing: "-0.5px",
+    textShadow: "0 1px 4px rgba(0,0,0,0.1)",
   },
   grid: {
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",
-    gap: "1rem",
+    gap: "0.75rem",
     marginBottom: "2rem",
     maxWidth: "600px",
     width: "100%",
@@ -144,39 +147,41 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "1rem 1.5rem",
-    borderRadius: "12px",
-    border: "2px solid #e0e0e0",
-    background: "#fff",
+    padding: "0.9rem 0.5rem",
+    borderRadius: "16px",
+    border: "none",
+    background: "rgba(255,255,255,0.35)",
+    backdropFilter: "blur(10px)",
+    WebkitBackdropFilter: "blur(10px)",
     cursor: "pointer",
-    transition: "all 0.2s",
+    transition: "transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
   },
   cardSelected: {
-    border: "2px solid #4f46e5",
-    background: "#eef2ff",
-    boxShadow: "0 0 0 3px rgba(79,70,229,0.2)",
+    background: "rgba(255,255,255,0.7)",
+    transform: "scale(1.08)",
+    boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
   },
   emoji: { fontSize: "2rem" },
-  label: { fontSize: "0.85rem", marginTop: "0.4rem", color: "#444" },
+  label: { fontSize: "0.78rem", marginTop: "0.4rem", color: "rgba(0,0,0,0.6)", fontWeight: 500 },
   status: {
-    fontSize: "1rem",
-    color: "#555",
+    fontSize: "1.1rem",
+    fontWeight: 600,
+    color: "rgba(0,0,0,0.65)",
     marginBottom: "1rem",
-    padding: "0.75rem 1.5rem",
-    background: "#fff",
-    borderRadius: "8px",
-    border: "1px solid #e0e0e0",
-    maxWidth: "600px",
-    width: "100%",
     textAlign: "center",
+    textShadow: "0 1px 3px rgba(0,0,0,0.1)",
   },
   reset: {
-    padding: "0.5rem 1.2rem",
-    borderRadius: "8px",
+    padding: "0.5rem 1.4rem",
+    borderRadius: "999px",
     border: "none",
-    background: "#ef4444",
+    background: "rgba(0,0,0,0.18)",
     color: "#fff",
     cursor: "pointer",
     fontSize: "0.9rem",
+    fontWeight: 600,
+    backdropFilter: "blur(6px)",
+    letterSpacing: "0.3px",
   },
 };
